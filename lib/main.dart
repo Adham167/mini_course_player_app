@@ -1,7 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mini_course_player_app/features/course_list/course_list_view.dart';
+import 'package:mini_course_player_app/features/course_list/presentation/views/my_courses_view.dart';
 
 void main() {
   runApp(
@@ -22,7 +22,7 @@ class MiniCoursePlayerApp extends StatelessWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      home: CourseListView(),
+      home: MyCoursesView(),
     );
   }
 }
