@@ -1,30 +1,23 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:mini_course_player_app/main.dart';
+import 'package:mini_course_player_app/features/course_list/data/models/course_model.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  test('CourseModel.fromJson parses data correctly', () {
+    final json = {
+      "id": "c001",
+      "title": "Flutter",
+      "thumbnailUrl": "image.png",
+      "durationSeconds": 120,
+      "description": "Course Description",
+      "videoUrl": "video.mp4",
+    };
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    final course = CourseModel.fromJson(json);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(course.id, "c001");
+    expect(course.title, "Flutter");
+    expect(course.durationSeconds, 120);
+    expect(course.description, "Course Description");
+    expect(course.videoUrl, "video.mp4");
   });
 }
