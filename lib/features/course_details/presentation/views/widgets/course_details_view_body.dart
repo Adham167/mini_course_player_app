@@ -1,12 +1,9 @@
-
 import 'package:flutter/material.dart';
+import 'package:mini_course_player_app/features/course_details/presentation/views/widgets/video_player_widget.dart';
 import 'package:mini_course_player_app/features/course_list/data/models/course_model.dart';
 
 class CourseDetailsViewBody extends StatelessWidget {
-  const CourseDetailsViewBody({
-    super.key,
-    required this.course,
-  });
+  const CourseDetailsViewBody({super.key, required this.course});
 
   final CourseModel course;
 
@@ -15,25 +12,7 @@ class CourseDetailsViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AspectRatio(
-          aspectRatio: 16 / 9,
-          child: Container(
-            color: Colors.black,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Opacity(
-                  opacity: 0.4,
-                  child: Image.network(
-                    course.thumbnailUrl,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        VideoPlayerWidget(course: course),
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -78,3 +57,4 @@ class CourseDetailsViewBody extends StatelessWidget {
     );
   }
 }
+
