@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_course_player_app/features/course_details/presentation/views/course_details_view.dart';
 import 'package:mini_course_player_app/features/course_list/data/models/course_model.dart';
+import 'package:mini_course_player_app/features/course_list/presentation/manager/get_courses_list_cubit/get_courses_list_cubit.dart';
 
 class CourseCardWidget extends StatelessWidget {
   const CourseCardWidget({super.key, required this.course});
@@ -8,13 +10,13 @@ class CourseCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
+      onTap: () async {
+        await Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) => CourseDetailsView(course: course),
-          ),
+          MaterialPageRoute(builder: (_) => CourseDetailsView(course: course)),
         );
+
+        context.read<GetCoursesListCubit>().getCourses();
       },
       child: Container(
         decoration: BoxDecoration(

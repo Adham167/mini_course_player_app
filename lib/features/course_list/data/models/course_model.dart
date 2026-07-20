@@ -5,8 +5,7 @@ class CourseModel {
   final int durationSeconds;
   final String description;
   final String videoUrl;
-  final double progress;
-
+  double progress;
   CourseModel({
     required this.id,
     required this.title,
