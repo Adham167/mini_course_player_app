@@ -1,6 +1,5 @@
 part of 'get_courses_list_cubit.dart';
 
-@immutable
 sealed class GetCoursesListState {}
 
 final class GetCoursesListInitial extends GetCoursesListState {}

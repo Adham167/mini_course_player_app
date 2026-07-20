@@ -1,5 +1,4 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_course_player_app/features/course_list/data/models/course_model.dart';
 import 'package:mini_course_player_app/features/course_list/data/service/course_service.dart';
 
